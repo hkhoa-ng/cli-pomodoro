@@ -10,6 +10,7 @@ import moment from "moment";
 import cliProgress from 'cli-progress';
 import colors from 'ansi-colors';
 import soundEffects from "node-sound-effects";
+import notifier from 'node-notifier'
 
 // Declaring global constants
 const SLEEP_DELAY = 2000;
@@ -26,20 +27,30 @@ async function welcome() {
     figlet(msg, (err, data) => {
         console.log(gradient.pastel.multiline(data))
     })
-    await playSound("error");
+    // await playSound("error");
     await sleep();
 
     console.log(`
     ${chalk.gray(`This is a simple Pomodoro Application, that works in your command line!
     Created by Khoa Nguyen @https://github.com/hkhoa-ng`)}
 
-    ===================================================================================
-    |  ${chalk.blue(`Let's start working together!`)}                                                  |
-    |  Enter your ${chalk.blue('Task')} and choose your ${chalk.blue('Session Period')}                                 |
-    |  Then press ${chalk.blue('Enter')} to start!                                                     |
-    |  ${chalk.blue('CLI Pomodoro')} will notify you work/break time is up with a sound notification!  |
-    ===================================================================================
+    ============================================================
+    |  ${chalk.blue(`Let's start working together!`)}                           |
+    |  Enter your ${chalk.blue('Task')} and choose your ${chalk.blue('Session Period')}          |
+    |  Then press ${chalk.blue('Enter')} to start!                              |
+    |                                                          |
+    |  ${chalk.blue('CLI Pomodoro')} will play a sound and show a notification  |
+    |  when work/break time's up. Something like this!         |
+    ============================================================
     `)
+    notifier.notify({
+        title: 'CLI Pomodoro',
+        message: `This is a notification!`,
+        closeLabel: 'Got it!',
+        sound: true,
+        wait: true,
+    });
+    await playSound("upload", 3);
 }
 
 async function askInformation() {
@@ -155,6 +166,13 @@ async function pomodoro() {
     pomodoroClock(true);
     if (timePassed > pomodoroTime) {
         timePassed = 0;
+        notifier.notify({
+            title: 'CLI Pomodoro',
+            message: `Great work! Let's have break!`,
+            closeLabel: 'Got it!',
+            wait: true,
+            sound: true
+        });
         await notification(true);
         breaking();
     } else {
@@ -166,6 +184,13 @@ async function breaking() {
     pomodoroClock(false);
     if (timePassed > breakTime) {
         timePassed = 0;
+        notifier.notify({
+            title: 'CLI Pomodoro',
+            message: `Time to get back to work!`,
+            closeLabel: 'Got it!',
+            wait: true,
+            sound: true
+        });
         await notification(false);
         pomodoro();
     } else {
