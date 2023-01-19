@@ -11,13 +11,18 @@ A simple,  cross-platform [Pomodoro](https://en.wikipedia.org/wiki/Pomodoro_Tech
     node -v
     npx -v
     ```
+    These commands should show the current version of Node.js and npm installed e.g., 
+    ```
+    node -v
+    v18.13.0
+    ```
 3. Install the application with:
     ```
     npx cli-pomodoro
     ```
 4. After installation, restart the terminal and run this command again:
     ```
-    npm cli-pomodoro
+    npx cli-pomodoro
     ```
     The app should be working properly with audio now! Happy Pomodoro!
 
@@ -40,6 +45,7 @@ A simple,  cross-platform [Pomodoro](https://en.wikipedia.org/wiki/Pomodoro_Tech
    ```
    node ./index.js
    ```
+The application should be running fine in your terminal. If any errors surface, try stop the process, restart the terminal, and run `node ./index.js` again.
 ---
 ## Application interface
 
