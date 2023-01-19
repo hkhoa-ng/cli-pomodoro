@@ -41,4 +41,13 @@ A simple,  cross-platform [Pomodoro](https://en.wikipedia.org/wiki/Pomodoro_Tech
    node ./index.js
    ```
 ---
+## Application interface
+
+Some screenshot of the application working...
+
+![The application](images/app-1.png)
+![Pomodoro working](images/app-2.png)
+
+---
+
 Feel free to edit the source code to your liking! This is just a fun little project I did in my free time!
