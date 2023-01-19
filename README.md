@@ -45,7 +45,8 @@ A simple,  cross-platform [Pomodoro](https://en.wikipedia.org/wiki/Pomodoro_Tech
    ```
    node ./index.js
    ```
-The application should be running fine in your terminal. If any errors surface, try stop the process, restart the terminal, and run `node ./index.js` again.
+    The application should be running fine in your terminal. If any errors surface, try to stop the process, restart the terminal, and run `node ./index.js` in your terminal again.
+
 ---
 ## Application interface
 
