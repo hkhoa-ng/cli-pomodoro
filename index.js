@@ -236,7 +236,7 @@ function pomodoroClock(isWorking) {
    Keep up the great job!
     `);
     console.log(`++ If you want to stop ${chalk.cyan('CLI Pomodoro')}, just press ${chalk.red('Ctrl + C')}!`);
-    timePassed += 300;
+    timePassed += 1;
 }
 
 async function notification(isWorking) {
